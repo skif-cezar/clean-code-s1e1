@@ -43,16 +43,16 @@ body {
 }
 
 .todo-app__list {
-  margin:0;
+  margin: 0;
   padding: 0px;
 }
 
 .todo-app__task-item, .todo-app__title {
-  list-style:none;
+  list-style: none;
 }
 
 input, .todo-app__button {
-  outline:none;
+  outline: none;
 }
 
 .todo-app__button {
@@ -156,14 +156,14 @@ input#new-task {
 
 /* Edit Task */
 .todo-app__list li input[type=text] {
-  display:none
+  display: none
 }
 
 .todo-app__task-item--edit-mode input[type=text] {
-  display:inline-block;
-  width:224px
+  display: inline-block;
+  width: 224px
 }
 
 .todo-app__task-item--edit-mode .todo-app__task-text {
-  display:none;
+  display: none;
 }
