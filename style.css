@@ -190,7 +190,8 @@ body {
 }
 
 .todo-app__task-item--edit-mode .todo-app__input--text,
-.todo-app__task-item--edit-mode .todo-app__input--save {
+.todo-app__task-item--edit-mode .todo-app__input--save,
+.todo-app__task-item--edit-mode .todo-app__input--edit {
   display: inline-block;
   width: 224px;
 }
