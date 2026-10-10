@@ -92,16 +92,12 @@ const deleteTask = function() {
     bindTaskEvents(listItem, taskIncomplete);
 };
 
-
-const taskIncomplete = function(){
-  console.log("Incomplete Task...");
-//Mark task as incomplete.
-  //When the checkbox is unchecked
-  //Append the task list item to the #incompleteTasks.
+// Mark task as incomplete
+const taskIncomplete = function() {
   const listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
-  bindTaskEvents(listItem,taskCompleted);
-}
+  bindTaskEvents(listItem, taskCompleted);
+};
 
 
 
