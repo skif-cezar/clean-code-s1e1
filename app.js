@@ -99,36 +99,16 @@ const taskIncomplete = function() {
   bindTaskEvents(listItem, taskCompleted);
 };
 
+// Bind event listeners to task item children
+const bindTaskEvents = (taskListItem, checkBoxEventHandler) => {
+  const checkBox = taskListItem.querySelector('.todo-app__checkbox');
+  const editButton = taskListItem.querySelector('.todo-app__button--edit');
+  const deleteButton = taskListItem.querySelector('.todo-app__button--delete');
 
-
-const ajaxRequest = function(){
-  console.log("AJAX Request");
-}
-
-//The glue to hold it all together.
-
-
-//Set the click handler to the addTask function.
-addButton.onclick = addTask;
-addButton.addEventListener("click",addTask);
-addButton.addEventListener("click",ajaxRequest);
-
-
-const bindTaskEvents = function(taskListItem,checkBoxEventHandler){
-  console.log("bind list item events");
-//select ListItems children
-  const checkBox = taskListItem.querySelector("input[type = checkbox]");
-  const editButton = taskListItem.querySelector("button.edit");
-  const deleteButton = taskListItem.querySelector("button.delete");
-
-
-  //Bind editTask to edit button.
   editButton.onclick = editTask;
-  //Bind deleteTask to delete button.
   deleteButton.onclick = deleteTask;
-  //Bind taskCompleted to checkBoxEventHandler.
   checkBox.onchange = checkBoxEventHandler;
-}
+};
 
 //cycle over incompleteTaskHolder ul list items
 //for each list item
