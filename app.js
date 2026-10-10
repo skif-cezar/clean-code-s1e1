@@ -1,5 +1,5 @@
 // DOM Elements
-const taskInput = document.getElementById('new-task');
+const taskInput = document.getElementById("new-task");
 const addButton = document.getElementsByTagName("button")[0];
 const incompleteTaskHolder = document.getElementById("incompleteTasks");
 const completedTasksHolder = document.getElementById("completed-tasks");
@@ -17,7 +17,7 @@ const createNewTaskElement = function(taskString) {
     const deleteButtonImg = document.createElement("img");
 
     label.innerText = taskString;
-    label.className = 'todo-app__task-text';
+    label.className = "todo-app__task-text";
 
     //Each elements, needs appending
     checkBox.type = "checkbox";
@@ -28,7 +28,7 @@ const createNewTaskElement = function(taskString) {
     editButton.className = "edit";
 
     deleteButton.className = "delete";
-    deleteButtonImg.src = './remove.svg';
+    deleteButtonImg.src = "./remove.svg";
     deleteButton.appendChild(deleteButtonImg);
 
 
@@ -66,7 +66,7 @@ const editTask = function() {
 
     const listItem = this.parentNode;
 
-    const editInput = listItem.querySelector('input[type = text]');
+    const editInput = listItem.querySelector("input[type = text]");
     const label = listItem.querySelector("label");
     const editBtn = listItem.querySelector(".edit");
     const containsClass = listItem.classList.contains("todo-app__task-item todo-app__task-item--edit-mode");
