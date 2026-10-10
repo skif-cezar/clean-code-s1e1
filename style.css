@@ -1,14 +1,41 @@
-/* Basic Style */
-body {
-  background-color: #f8f8f8;
-  color: #333;
-  font-family: 'Lato', sans-serif;
+/* ==========================================================================
+   Variables & Design Tokens
+   ========================================================================== */
+:root {
+  --font-family-base: 'Lato', sans-serif;
+  --font-family-banner: fantasy, cursive;
+  
+  --color-bg-body: #f8f8f8;
+  --color-bg-input: #ffffff;
+  --color-text-main: #333333;
+  --color-text-muted: #888888;
+  --color-text-hover: #3a3a3a;
+  
+  --color-border-main: #333333;
+  --color-border-light: #dddddd;
+  --color-border-item: #eeeeee;
+  
+  --spacing-container: 500px;
+  --transition-speed: 200ms;
 }
 
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+body {
+  margin: 0;
+  background-color: var(--color-bg-body);
+  color: var(--color-text-main);
+  font-family: var(--font-family-base);
+}
+
+/* ==========================================================================
+   Block: Matrix Banner
+   ========================================================================== */
 .matrix-banner {
-  width: 500px;
-  margin: 0 auto;
   display: block;
+  width: var(--spacing-container);
+  margin: 0 auto;
   text-align: right;
 }
 
@@ -17,151 +44,153 @@ body {
 }
 
 .matrix-banner__link {
-  font-family: fantasy, cursive;
+  font-family: var(--font-family-banner);
 }
 
-@media (max-width:768px) {
-  .matrix-banner { 
+@media (max-width: 768px) {
+  .matrix-banner {
     text-align: center;
   }
 }
 
+/* ==========================================================================
+   Block: Todo App
+   ========================================================================== */
 .todo-app {
   display: block;
-  width: 500px;
+  width: var(--spacing-container);
   margin: 0 auto;
 }
 
-.todo-app__input, .todo-app__task-text {
-  display: inline-block;
-  flex-grow: 1;
-}
-
-.todo-app__input-group {
-  display: flex;
-}
-
-.todo-app__list {
-  margin: 0;
-  padding: 0;
-}
-
-.todo-app__task-item, .todo-app__title {
-  list-style: none;
-}
-
-input, .todo-app__button {
-  outline: none;
-}
-
-.todo-app__button {
-  background: none;
-  border: 0px;
-  color: #888;
-  font-size: 15px;
-  width: 60px;
-  font-family: 'Lato', sans-serif;
-  cursor: pointer;
-}
-
-.todo-app__button:hover {
-  color: #3a3a3a;
-}
-
-/* Heading */
+/* --- Elements: Sections & Titles --- */
 .todo-app__title,
 .todo-app__label {
-  color: #333;
+  color: var(--color-text-main);
   font-weight: 700;
   font-size: 15px;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid var(--color-border-main);
   padding: 30px 0 10px;
   text-transform: uppercase;
 }
 
-.todo-app__input--text, .todo-app__input--edit, .todo-app__input--save {
-  margin: 0;
-  font-size: 18px;
-  line-height: 18px;
-  height: 21px;
-  padding: 0 9px;
-  border: 1px solid #ddd;
-  background: #fff;
-  border-radius: 6px;
-  font-family: 'Lato', sans-serif;
-  color: #888;
-}
-
-.todo-app__input--text:focus {
-  color: #333;
-}
-
-/* New Task */
 .todo-app__label {
   display: block;
   margin: 0 0 20px;
 }
 
-.todo-app__input-group .todo-app__input--text {
-  width: 318px;
+/* --- Elements: Lists & Items --- */
+.todo-app__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-/* Task list */
 .todo-app__task-item {
-  overflow: hidden;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border-item);
 }
 
-.todo-app__task-item > * {
-  vertical-align: middle;
+/* --- Elements: Form Controls & Buttons --- */
+.todo-app__input-group {
+  display: flex;
 }
 
-.todo-app__task-item > .todo-app__checkbox {
+.todo-app__input {
+  outline: none;
+  font-family: var(--font-family-base);
+}
+
+.todo-app__checkbox {
   margin: 0 10px;
 }
 
-.todo-app__task-item > .todo-app__task-text {
+.todo-app__task-text {
+  flex-grow: 1;
+  width: 226px;
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
+}
+
+.todo-app__button {
+  outline: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--color-text-muted);
+  font-size: 15px;
+  font-family: var(--font-family-base);
+  width: 60px;
+  cursor: pointer;
+  transition: color var(--transition-speed) ease-in;
+}
+
+.todo-app__button:hover {
+  color: var(--color-text-hover);
+}
+
+/* --- Modifiers: Inputs --- */
+.todo-app__input--text,
+.todo-app__input--edit,
+.todo-app__input--save {
+  display: inline-block;
+  flex-grow: 1;
+  height: 21px;
+  margin: 0;
+  padding: 0 9px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 6px;
+  background: var(--color-bg-input);
+  color: var(--color-text-muted);
+  font-size: 18px;
+  line-height: 18px;
+  font-family: var(--font-family-base);
+}
+
+.todo-app__input--text {
+  width: 318px;
+}
+
+.todo-app__input--text:focus {
+  color: var(--color-text-main);
+}
+
+/* Default */
+.todo-app__task-item .todo-app__input--text,
+.todo-app__task-item .todo-app__input--edit {
+  display: none;
   width: 226px;
 }
 
-.todo-app__task-item >  .todo-app__input--text, .todo-app__input--edit {
-  width: 226px;
-}
-
+/* --- Modifiers: Buttons & Icons --- */
 .todo-app__button--delete img {
   height: 2em;
   transform: rotateZ(45deg);
-  transition: transform 200ms ease-in;
+  transition: transform var(--transition-speed) ease-in;
 }
 
 .todo-app__button--delete img:hover {
   transform: rotateZ(0);
 }
 
-/* Completed */
-.todo-app__list#completed-tasks .todo-app__task-text {
+/* --- Modifiers: Completed Tasks State --- */
+.todo-app__list--completed .todo-app__task-text,
+#completed-tasks .todo-app__task-text {
   text-decoration: line-through;
-  color: #888;
+  color: var(--color-text-muted);
 }
 
-/* Edit Task */
-.todo-app__list li .todo-app__input--text, .todo-app__input--edit {
-  display: none;
-}
-
-.todo-app__task-item--edit-mode .todo-app__input--text, .todo-app__input--save {
-  display: inline-block;
-  width: 224px;
-}
-
+/* --- Modifiers: Edit Mode State --- */
 .todo-app__task-item--edit-mode .todo-app__task-text {
   display: none;
+}
+
+.todo-app__task-item--edit-mode .todo-app__input--text,
+.todo-app__task-item--edit-mode .todo-app__input--save {
+  display: inline-block;
+  width: 224px;
 }
