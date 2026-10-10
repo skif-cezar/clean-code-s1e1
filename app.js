@@ -60,33 +60,23 @@ const addTask = (event) => {
   taskInput.value = '';
 };
 
-//Edit an existing task.
-
+// Edit an existing task
 const editTask = function() {
-  console.log("Edit Task...");
-  console.log("Change 'edit' to 'save'");
-
-
   const listItem = this.parentNode;
+  const editInput = listItem.querySelector('.todo-app__input--edit');
+  const label = listItem.querySelector('.todo-app__task-text');
+  const editBtn = listItem.querySelector('.todo-app__button--edit');
+  const isEditMode = listItem.classList.contains('todo-app__task-item--edit-mode');
 
-  const editInput = listItem.querySelector("input[type = text]");
-  const label = listItem.querySelector("label");
-  const editBtn = listItem.querySelector(".edit");
-  const containsClass = listItem.classList.contains("todo-app__task-item todo-app__task-item--edit-mode");
-  //If class of the parent is .todo-app__task-item todo-app__task-item--edit-mode
-  if(containsClass){
-
-    //switch to .todo-app__task-item todo-app__task-item--edit-mode
-    //label becomes the inputs value.
-    label.innerText = editInput.value;
-    editBtn.innerText = "Edit";
-  }else{
+  if (isEditMode) {
+    label.textContent = editInput.value;
+    editBtn.textContent = 'Edit';
+  } else {
     editInput.value = label.innerText;
-    editBtn.innerText = "Save";
+    editBtn.textContent = 'Save';
   }
 
-  //toggle .todo-app__task-item todo-app__task-item--edit-mode on the parent.
-  listItem.classList.toggle("todo-app__task-item todo-app__task-item--edit-mode");
+  listItem.classList.toggle('todo-app__task-item--edit-mode');
 };
 
 
