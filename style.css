@@ -35,7 +35,7 @@ body {
 .todo-app__input {
   width: 56%;
   display: inline-block;
-  flex-grow: 1
+  flex-grow: 1;
 }
 
 .todo-app__input-group {
@@ -135,7 +135,7 @@ input#new-task {
 }
 
 .todo-app__task-item >  input[type="text"] {
-  width: 226px
+  width: 226px;
 }
 
 .todo-app__button--delete img {
@@ -150,18 +150,18 @@ input#new-task {
 
 /* Completed */
 .todo-app__list#completed-tasks .todo-app__task-text {
-  text-decoration: line-through
+  text-decoration: line-through;
   color: #888;
 }
 
 /* Edit Task */
 .todo-app__list li input[type=text] {
-  display: none
+  display: none;
 }
 
 .todo-app__task-item--edit-mode input[type=text] {
   display: inline-block;
-  width: 224px
+  width: 224px;
 }
 
 .todo-app__task-item--edit-mode .todo-app__task-text {
