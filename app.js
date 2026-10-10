@@ -79,17 +79,11 @@ const editTask = function() {
   listItem.classList.toggle('todo-app__task-item--edit-mode');
 };
 
-
-//Delete task.
-const deleteTask = function(){
-  console.log("Delete Task...");
-
+// Delete a task
+const deleteTask = function() {
   const listItem = this.parentNode;
-  const ul = listItem.parentNode;
-  //Remove the parent list item from the ul.
-  ul.removeChild(listItem);
-
-}
+  listItem.remove();
+};
 
 
 //Mark task completed
