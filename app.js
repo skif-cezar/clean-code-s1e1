@@ -85,17 +85,12 @@ const deleteTask = function() {
   listItem.remove();
 };
 
-
-//Mark task completed
-const taskCompleted = function(){
-  console.log("Complete Task...");
-
-  //Append the task list item to the #completed-tasks
-  const listItem = this.parentNode;
-  completedTasksHolder.appendChild(listItem);
-  bindTaskEvents(listItem, taskIncomplete);
-
-}
+// Mark task as completed
+  const taskCompleted = function() {
+    const listItem = this.parentNode;
+    completedTasksHolder.appendChild(listItem);
+    bindTaskEvents(listItem, taskIncomplete);
+};
 
 
 const taskIncomplete = function(){
